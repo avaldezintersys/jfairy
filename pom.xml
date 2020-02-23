@@ -45,7 +45,7 @@
 		<tag>HEAD</tag>
 	</scm>
 
-	<distributionManagement>
+	<!--<distributionManagement>
 		<snapshotRepository>
 			<id>oss</id>
 			<name>Sonatype Nexus Snapshots</name>
@@ -55,6 +55,14 @@
 			<id>oss</id>
 			<name>Nexus Release Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement> -->
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub OWNER Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/avaldezintersys/jfairy</url>
 		</repository>
 	</distributionManagement>
 
