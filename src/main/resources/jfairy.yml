@@ -1,4 +1,7 @@
 data:
+  productNames : [ Product, ProductName, ProductX, ProductY, ProductZ ]
+  productTypes: [QA, VB, NB, ME]
+  productCodes: [A, B, C, D, E, F]
   creditCardPrefixes: {
     Visa: [4]
   }

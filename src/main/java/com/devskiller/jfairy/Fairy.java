@@ -6,6 +6,8 @@ package com.devskiller.jfairy;
 import javax.inject.Inject;
 import java.util.Locale;
 
+import com.devskiller.jfairy.producer.Product.Product;
+import com.devskiller.jfairy.producer.Product.ProductProvider;
 import com.google.inject.Provider;
 
 import com.devskiller.jfairy.data.DataMaster;
@@ -33,13 +35,14 @@ public final class Fairy {
 	private final BaseProducer baseProducer;
 	private final DateProducer dateProducer;
 	private final CreditCardProvider creditCardProvider;
+	private final ProductProvider productProvider;
 	private final CompanyFactory companyFactory;
 	private final IBANFactory ibanFactory;
 
 	@Inject
 	Fairy(TextProducer textProducer, PersonFactory personFactory, NetworkProducer networkProducer,
 	      BaseProducer baseProducer, DateProducer dateProducer, CreditCardProvider creditCardProvider,
-	      CompanyFactory companyFactory, IBANFactory ibanFactory) {
+	      CompanyFactory companyFactory, IBANFactory ibanFactory, ProductProvider productProvider) {
 		this.textProducer = textProducer;
 		this.personFactory = personFactory;
 		this.networkProducer = networkProducer;
@@ -48,6 +51,7 @@ public final class Fairy {
 		this.creditCardProvider = creditCardProvider;
 		this.companyFactory = companyFactory;
 		this.ibanFactory = ibanFactory;
+		this.productProvider = productProvider;
 	}
 
 	public static Fairy create() {
@@ -134,5 +138,9 @@ public final class Fairy {
 
 	public NetworkProducer networkProducer() {
 		return networkProducer;
+	}
+
+	public Product product() {
+		return productProvider.get();
 	}
 }
